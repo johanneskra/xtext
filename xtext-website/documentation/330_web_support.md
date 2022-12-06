@@ -345,6 +345,8 @@ Content assist proposals for cross-references are created by [IdeCrossrefProposa
 
 The typical customization point for [IdeCrossrefProposalProvider]({{site.src.xtext_core}}/org.eclipse.xtext.ide/src/org/eclipse/xtext/ide/editor/contentassist/IdeCrossrefProposalProvider.java) is the method `createProposal(...)`, which is called for each element found by the scope provider. Here you can fine-tune the information to put into the [ContentAssistEntry]({{site.src.xtext_core}}/org.eclipse.xtext.ide/src/org/eclipse/xtext/ide/editor/contentassist/ContentAssistEntry.java).
 
+By default, these customizations only affect the web editor and the language server. For them to end up in the Eclipse IDE, the [UiToIdeContentProposalProvider]({{site.src.xtext_eclipse}}/org.eclipse.xtext.ui/src/org/eclipse/xtext/ui/editor/contentassist/UiToIdeContentProposalProvider.java) has to be used. More details on this can be found in [these instructions](https://stackoverflow.com/a/51985554).
+
 ### Semantic Highlighting {#semantic-highlighting}
 
 The default behavior of Xtext editors is to have no semantic highlighting (syntactic highlighting, e.g. for keywords and strings, is done on the client side as described in [Syntax Highlighting](#syntax-highlighting)). In order to add styling to your text, create a subclass of [DefaultSemanticHighlightingCalculator]({{site.src.xtext_core}}/org.eclipse.xtext.ide/src/org/eclipse/xtext/ide/editor/syntaxcoloring/DefaultSemanticHighlightingCalculator.java) and override `highlightElement(...)`. Here you can mark text regions with CSS classes by submitting a text offset, a length, and the CSS class name to the given acceptor. You can specify the actual text style in a CSS file that is included by the web page containing the Xtext editor.

@@ -88,6 +88,8 @@ public void configureResourceUIServiceLabelProvider(Binder binder) {
 
 ## Content Assist {#content-assist}
 
+This section addresses the customization of the content assist in the *ui* project. These changes only have an effect on the Eclipse IDE. For customization that also affect the web editor and the language server, please refer to the [instructions for the ide project](330_web_support.md#content-assist).
+
 The Xtext generator, amongst other things, generates the following two content assist related artifacts:
 
 *   An abstract proposal provider class named `Abstract{MyLang}ProposalProvider` generated into the *src-gen* folder within the *ui* project, and
